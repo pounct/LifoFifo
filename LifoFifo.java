@@ -12,16 +12,24 @@ public class LifoFifo {
 		pila = pushPila(1, pila);
 		pila = pushPila(2, pila);
 		pila = pushPila(3, pila);
-		System.out.println(Arrays.toString(pila));
+		System.out.println("PUSH PILA : "+Arrays.toString(pila));
+		
+		int elemntAEliminar = pila[pila.length-1];		
 		pila = popPila(pila);
-		System.out.println(Arrays.toString(pila));
+		
+		System.out.println("POP PILA LIFO  elmento a eliminar : "+elemntAEliminar);
+		System.out.println("POP PILA LIFO resultado array : "+Arrays.toString(pila));
 
 		fila = pushFila(1, fila);
 		fila = pushFila(2, fila);
 		fila = pushFila(3, fila);
-		System.out.println(Arrays.toString(fila));
+		System.out.println("PUSH FILA : "+Arrays.toString(fila));
+		
+		elemntAEliminar = pila[0];
 		fila = popFila(fila);
-		System.out.println(Arrays.toString(fila));
+		
+		System.out.println("POP PILA LIFO elmento a eliminar: "+elemntAEliminar);
+		System.out.println("POP FILA FIFO resultado array: "+Arrays.toString(fila));
 
 	}
 
@@ -49,13 +57,7 @@ public class LifoFifo {
 	}
 
 	static int[] pushFila(int element, int[] fila) {
-		int[] res = new int[fila.length + 1];
-
-		for (int i = 0; i < fila.length; i++) {
-
-			res[i] = fila[i];
-		}
-		res[fila.length] = element;
+		int[] res = pushPila(element,fila);
 		return res;
 	}
 
